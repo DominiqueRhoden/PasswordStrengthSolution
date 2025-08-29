@@ -22,6 +22,10 @@ public class PasswordStrengthCheckerTests
     [InlineData("Ab!", "MEDIUM")]      // upper + lower + symbol
     [InlineData("a1!", "MEDIUM")]      // lower + digit + symbol
     [InlineData("Ab1!", "STRONG")]     // all criteria met
+    [InlineData("Ab1!", "INELIGIBLE")]  // too short, even though criteria met
+    [InlineData("Abcdef1!", "STRONG")]  // length ok, all criteria met
+    [InlineData("abcdefg1", "MEDIUM")]  // length ok, lower + digit
+
     public void CheckStrength_ReturnsExpected(string input, string expected)
     {
         var result = PasswordStrengthChecker.CheckStrength(input);

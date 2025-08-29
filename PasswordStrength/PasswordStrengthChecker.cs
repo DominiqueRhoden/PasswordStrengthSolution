@@ -11,6 +11,9 @@ public static class PasswordStrengthChecker
     /// </summary>
     public static string CheckStrength(string? password)
     {
+        if (string.IsNullOrEmpty(password) || password.Length < 8)
+            return "INELIGIBLE";
+
         if (string.IsNullOrEmpty(password))
             return "INELIGIBLE";
 
