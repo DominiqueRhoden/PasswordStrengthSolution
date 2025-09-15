@@ -9,6 +9,23 @@ public static class PasswordStrengthChecker
     /// - MEDIUM = 2 or 3 criteria met
     /// - STRONG = all 4 criteria met
     /// </summary>
+    /// Checks the strength of a password by verifying if it meets certain criteria:
+    /// 1. Contains at least one uppercase letter
+    /// 2. Contains at least one lowercase letter
+    /// 3. Contains at least one digit
+    /// 4. Contains at least one symbol
+    /// 5. Has a minimum length of 8 characters
+    /// 
+    /// Based on the number of criteria met:
+    /// - "INELIGIBLE": empty or too short
+    /// - "WEAK": only 1 criterion met
+    /// - "MEDIUM": 2–3 criteria met
+    /// - "STRONG": all 4 criteria met
+    /// </summary>
+    /// <param name="password">The password string to check.</param>
+    /// <returns>
+    /// A string representing the password strength: "INELIGIBLE", "WEAK", "MEDIUM", or "STRONG".
+    /// </returns>
     public static string CheckStrength(string? password)
     {
         if (string.IsNullOrEmpty(password))
